@@ -1,0 +1,68 @@
+// Shortcut.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (Shortcut.tlb) that will become a resource in
+// Shortcut.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(E747AB55-879B-40A6-8F34-B244C50AD402), version(1.0),
+  helpfile("Shortcut.hlp"),
+  helpstring("Shortcut ActiveX Control module"),
+  control ]
+library SHORTCUTLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CShortcutCtrl
+
+	[ uuid(9671CF70-D29D-403D-9878-98B14EF6DE3E),
+	  helpstring("Dispatch interface for Shortcut Control"), hidden ]
+	dispinterface _DShortcut
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CShortcutCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CShortcutCtrl)
+			[id(1)] boolean MakeShortcut();
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CShortcutCtrl
+
+	[ uuid(90D8FCEA-194F-48E8-A2B0-A7F733FBCB84),
+	  helpstring("Event interface for Shortcut Control") ]
+	dispinterface _DShortcutEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CShortcutCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CShortcutCtrl
+
+	[ uuid(FD1B28AD-5024-45E8-9013-54B8FDB9D740),
+	  helpstring("Shortcut Control"), control ]
+	coclass Shortcut
+	{
+		[default] dispinterface _DShortcut;
+		[default, source] dispinterface _DShortcutEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};
